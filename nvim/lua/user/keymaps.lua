@@ -1,8 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- Paste replace visual selection without copying it
 vim.keymap.set('x', 'p', '"_dP')
 
