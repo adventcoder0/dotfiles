@@ -3,13 +3,6 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", "\"_dP")
-
--- When text is wrapped, move by terminal rows, not lines, unless a count is provided
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
-
 -- Paste replace visual selection without copying it
 vim.keymap.set('x', 'p', '"_dP')
 
@@ -31,6 +24,3 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Search to replace
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-
--- Format
-vim.keymap.set("n", "<leader>F", "gg=G")
