@@ -140,12 +140,17 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
-require('onedark').setup {
-  transparent = false;
-  style = 'darker';
-}
+-- require('onedark').setup {
+--   transparent = false;
+--   style = 'darker';
+-- }
+--
+-- require('onedark').load()
 
-require('onedark').load()
+require('tokyonight').setup {
+  transparent = true;
+  style = 'night';
+}
 
 -- Set colorscheme
 vim.o.termguicolors = true
@@ -557,9 +562,12 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
   },
 }
 
+require("luasnip.loaders.from_vscode").lazy_load()
 -- debug setup
 
 local dap, dapui = require("dap"), require("dapui")
