@@ -658,13 +658,26 @@ dap.adapters.codelldb = {
     port = "${port}",
     executable = {
         -- CHANGE THIS to your path!
-        command = '/usr/bin/codelldb',
+        command = '/Users/parrot-bananas/.local/share/nvim/mason/bin/codelldb',
 
         args = { "--port", "${port}" },
 
         -- On windows you may have to uncomment this:
         -- detached = false,
     }
+}
+
+dap.adapters.lldb = {
+    type = 'executable',
+    -- executable = {
+    -- CHANGE THIS to your path!
+    command = '/usr/bin/lldb',
+
+    -- args = { "--port", "${port}" },
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+    -- }
 }
 
 dap.configurations.rust = {
@@ -677,6 +690,20 @@ dap.configurations.rust = {
         stopOnEntry = false,
         sourceLanguages = { "rust" }
     },
+}
+
+dap.configurations.swift = {
+    {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        sourceLanguages = { "swift" }
+    }
 }
 
 
